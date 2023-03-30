@@ -54,8 +54,12 @@ async function init() {
   )
 
   const files = fs.readdirSync(templatePath)
+  const filesToFilter = ['package.json', 'node_modules', 'dist']
+  const filteredFiles = files.filter(file => !filesToFilter.includes(file))
 
-  for (const file of files.filter(file => file !== 'package.json')) {
+  console.log('files', filteredFiles)
+
+  for (const file of filteredFiles) {
     write(file)
   }
 
