@@ -1,0 +1,7 @@
+{
+  "name": "template-generator",
+  "author": "Gabriel Saito <gabrielpereira050201@hotmail.com>",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
