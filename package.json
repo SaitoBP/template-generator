@@ -1,7 +1,30 @@
 {
   "name": "template-generator",
-  "author": "Gabriel Saito <gabrielpereira050201@hotmail.com>",
+  "author": "Gabriel Saito",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "type": "module",
+  "license": "MIT",
+  "bin": "index.js",
+  "repository": "github:SaitoBP/template-generator",
+  "files": [
+    "index.js",
+    "template-*",
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub"
+  },
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.15.11",
+    "@types/prompts": "^2.4.3",
+    "typescript": "^5.0.2",
+    "unbuild": "^1.1.2"
+  }
 }
