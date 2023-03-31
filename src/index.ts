@@ -57,8 +57,6 @@ async function init() {
   const filesToFilter = ['package.json', 'node_modules', 'dist']
   const filteredFiles = files.filter(file => !filesToFilter.includes(file))
 
-  console.log('files', filteredFiles)
-
   for (const file of filteredFiles) {
     write(file)
   }
@@ -70,10 +68,6 @@ async function init() {
   pkg.name = results.name
 
   write('package.json', JSON.stringify(pkg, null, 2) + '\n')
-
-  console.log('results', results)
-  console.log('root', root)
-  console.log('templatePath', templatePath)
 
   function write(file: string, content?: string) {
     const targetPath = path.join(root, file)
