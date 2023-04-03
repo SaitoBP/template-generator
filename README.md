@@ -24,3 +24,13 @@ To create a new template we need to create a folder following the pattern `templ
 Then we need to update the `templates.ts`file with the new template name, description, key and color.
 
 All the files inside the template folder will be copied to the project folder.
+
+### Using custom variables
+
+To use custom variables inside the template files we need to use the following syntax:
+
+`$$<variable-name>$$`
+
+and then we need to update the variables array inside the `index.ts` file with the variable regex and the new value.
+
+Obs. Most of the time the value should be provided to the user via prompt.

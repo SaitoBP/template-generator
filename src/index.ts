@@ -54,7 +54,7 @@ async function init() {
   )
 
   const files = fs.readdirSync(templatePath)
-  const filesToFilter = ['package.json', 'node_modules', 'dist']
+  const filesToFilter = ['package.json', 'node_modules', 'dist', 'yarn.lock']
   const filteredFiles = files.filter(file => !filesToFilter.includes(file))
 
   for (const file of filteredFiles) {
@@ -73,7 +73,7 @@ async function init() {
     const targetPath = path.join(root, file)
 
     if (content) {
-      fs.writeFileSync(targetPath, content)
+      fs.writeFileSync(targetPath, content, 'utf-8')
     }
 
     if (!content) {
@@ -89,7 +89,33 @@ async function init() {
     }
 
     if (stat.isFile()) {
-      fs.copyFileSync(src, dest)
+      /**
+       * Read the content of the file
+       */
+      const fileContent = fs.readFileSync(src, 'utf-8')
+
+      /**
+       * Define the variables to replace
+       */
+      const variables = [
+        {
+          regex: /\$\$GAME_NAME\$\$/g,
+          value: results.name
+        }
+      ]
+
+      /**
+       * Replace the variables in the content
+       */
+      const newContent = variables.reduce((content, variable) => {
+        return content.replace(variable.regex, variable.value)
+      }, fileContent)
+
+      /**
+       * Write the new content to the destination file
+       */
+
+      fs.writeFileSync(dest, newContent, 'utf-8')
     }
   }
 
