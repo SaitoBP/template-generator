@@ -1,0 +1,1 @@
+export { FreeBetError } from './FreeBetError';

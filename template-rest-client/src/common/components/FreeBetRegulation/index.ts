@@ -1,0 +1,1 @@
+export { FreeBetRegulation } from './FreeBetRegulation';
